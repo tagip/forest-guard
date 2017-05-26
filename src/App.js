@@ -1,7 +1,8 @@
 // in src/App.js
 import React from 'react';
-import { jsonServerRestClient, Admin, Resource } from 'admin-on-rest';
+import { Admin, Resource } from 'admin-on-rest';
 import authClient from './authClient';
+import jsonServerRestClient from './RestClient';
 
 import { UserList } from './users';
 
