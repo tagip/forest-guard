@@ -33,14 +33,8 @@ export default (apiUrl, httpClient = fetchJson) => {
         const options = {};
         switch (type) {
         case GET_LIST: {
-            const { page, perPage } = params.pagination;
-            const { field, order } = params.sort;
             const query = {
                 ...params.filter,
-                _sort: field,
-                _order: order,
-                _start: (page - 1) * perPage,
-                _end: page * perPage,
             };
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
