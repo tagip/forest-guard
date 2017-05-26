@@ -1,4 +1,4 @@
-import { AUTH_LOGIN } from 'admin-on-rest';
+import { AUTH_LOGIN, AUTH_LOGOUT } from 'admin-on-rest';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -18,6 +18,10 @@ export default (type, params) => {
             .then(({ auth_token }) => {
                 localStorage.setItem('token', auth_token);
             });
+    }
+    if (type === AUTH_LOGOUT) {
+        localStorage.removeItem('token');
+        return Promise.resolve();
     }
     return Promise.resolve();
 }
