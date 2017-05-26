@@ -12,6 +12,11 @@ export const UserList = (props) => (
                     <ChipField source="subject" />
                 </SingleFieldList>
             </ReferenceManyField>
+            <ReferenceManyField label="Issues" reference="issues" target="assigned_to">
+                <SingleFieldList>
+                    <ChipField source="subject" />
+                </SingleFieldList>
+            </ReferenceManyField>
         </Datagrid>
     </List>
 );

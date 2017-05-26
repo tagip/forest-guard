@@ -21,6 +21,7 @@ const App = () => (
     <Admin title="Forest Guard" restClient={restClient} authClient={authClient}>
         <Resource name="users" list={UserList} />
         <Resource name="tasks" />
+        <Resource name="issues" />
     </Admin>
 );
 
