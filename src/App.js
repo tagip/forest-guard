@@ -15,7 +15,9 @@ const httpClient = (url, options = {}) => {
     return fetchUtils.fetchJson(url, options);
 }
 
-const restClient = jsonServerRestClient('http://taiga.tag-ip.com/api/v1', httpClient);
+const API_URL = process.env.REACT_APP_API_URL || 'https://api.taiga.io/api/v1'
+
+const restClient = jsonServerRestClient(API_URL, httpClient);
 
 const App = () => (
     <Admin title="Forest Guard" restClient={restClient} authClient={authClient}>
