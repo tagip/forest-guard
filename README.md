@@ -1,4 +1,4 @@
-Forest Guard is a [Taiga](https://taiga.io/) dashboard for managers to see who is doing what on their different Taiga projects. 
+Forest Guard is a [Taiga](https://taiga.io/) dashboard for managers to see who is doing what on their different Taiga projects. It is built using the great [admin-on-rest](https://marmelab.com/admin-on-rest/) framework.
 
 The main view is a grid list of users and their assigned tasks and issues that are not closed yet. 
 
