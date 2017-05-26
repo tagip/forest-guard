@@ -1,0 +1,6 @@
+import React from 'react';
+import Chip from 'material-ui/Chip';
+
+const TaskField = ({ record = {} }) => <Chip style={{margin: 2}}><span title={record.subject}>#{record.id}</span></Chip>;
+
+export default TaskField;

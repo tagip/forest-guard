@@ -1,6 +1,7 @@
 // in src/Users.js
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceManyField, SingleFieldList, ChipField} from 'admin-on-rest';
+import { List, Datagrid, TextField, ReferenceManyField, SingleFieldList} from 'admin-on-rest';
+import TaskField from './TaskField';
 
 export const UserList = (props) => (
     <List {...props} perPage={30}>
@@ -9,12 +10,12 @@ export const UserList = (props) => (
             <TextField source="full_name" sortable={false}/>
             <ReferenceManyField label="Tasks" reference="tasks" target="assigned_to">
                 <SingleFieldList>
-                    <ChipField source="subject" />
+                    <TaskField source="id" />
                 </SingleFieldList>
             </ReferenceManyField>
             <ReferenceManyField label="Issues" reference="issues" target="assigned_to">
                 <SingleFieldList>
-                    <ChipField source="subject" />
+                    <TaskField source="id" />
                 </SingleFieldList>
             </ReferenceManyField>
         </Datagrid>
