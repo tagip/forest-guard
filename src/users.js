@@ -4,7 +4,7 @@ import { List, Datagrid, TextField, ReferenceManyField, SingleFieldList} from 'a
 import TaskField from './TaskField';
 
 export const UserList = (props) => (
-    <List {...props} perPage={30}>
+    <List {...props} perPage={30} title="Who is doing what?">
         <Datagrid>
             <TextField source="id" sortable={false}/>
             <TextField source="full_name" sortable={false}/>

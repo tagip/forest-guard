@@ -19,7 +19,7 @@ const restClient = jsonServerRestClient('http://taiga.tag-ip.com/api/v1', httpCl
 
 const App = () => (
     <Admin title="Forest Guard" restClient={restClient} authClient={authClient}>
-        <Resource name="users" list={UserList} />
+        <Resource name="users" list={UserList} options={{ label: 'Who is doing what?' }}/>
         <Resource name="tasks" />
         <Resource name="issues" />
     </Admin>
