@@ -1,4 +1,8 @@
-This project is a Taiga Dashboard for managers to see who is doing what on different Taiga projects. 
+Forest Guard is a [Taiga](https://taiga.io/) dashboard for managers to see who is doing what on their different Taiga projects. 
+
+The main view is a grid list of users and their assigned tasks and issues that are not closed yet. 
+
+![ScreenShot](./screenshot.png)
 
 ## Start the project
 
