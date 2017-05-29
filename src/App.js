@@ -4,7 +4,7 @@ import { Admin, Resource, fetchUtils } from 'admin-on-rest';
 import authClient from './authClient';
 import jsonServerRestClient from './RestClient';
 
-import { UserList } from './users';
+import { UserList } from './UserList';
 import { API_URL } from './consts';
 
 const httpClient = (url, options = {}) => {
