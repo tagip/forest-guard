@@ -10,12 +10,12 @@ export const UserList = (props) => (
             <TextField source="full_name" sortable={false}/>
             <ReferenceManyField label="Tasks" reference="tasks" target="assigned_to" filter={{status__is_closed:false}}>
                 <SingleFieldList>
-                    <TaskField source="id" />
+                    <TaskField source="id" type="task" />
                 </SingleFieldList>
             </ReferenceManyField>
             <ReferenceManyField label="Issues" reference="issues" target="assigned_to" filter={{status__is_closed:false}}>
                 <SingleFieldList>
-                    <TaskField source="id" />
+                    <TaskField source="id" type="issue" />
                 </SingleFieldList>
             </ReferenceManyField>
         </Datagrid>

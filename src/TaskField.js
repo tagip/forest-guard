@@ -1,6 +1,12 @@
 import React from 'react';
 import Chip from 'material-ui/Chip';
+import { BASE_URL } from './consts';
 
-const TaskField = ({ record = {} }) => <Chip style={{margin: 2}}><span title={record.subject}>#{record.ref}: {record.subject}</span></Chip>;
+const TaskField = ({ record = {}, type = 'task' }) =>
+  <Chip style={{margin: 2}}>
+    <a href={`${BASE_URL}/project/${record.project_extra_info.slug}/${type}/${record.ref}`} target="_blank">
+      <span title={record.subject}>#{record.ref}: {record.subject}</span>
+    </a>
+  </Chip>;
 
 export default TaskField;

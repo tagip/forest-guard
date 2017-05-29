@@ -23,6 +23,7 @@ const App = () => (
         <Resource name="users" list={UserList} options={{ label: 'Who is doing what?' }}/>
         <Resource name="tasks" />
         <Resource name="issues" />
+        <Resource name="project" />
     </Admin>
 );
 
