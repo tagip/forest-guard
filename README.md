@@ -28,3 +28,10 @@ The image can then be run with (here on port 8056) :
 ```
 $ docker run -p 8056:80 --name forest-guard --rm forest-guard
 ```
+
+You can push the image in a registry (either docker hub or a private registry) so it can be used from anywhere else : 
+
+```
+$ docker tag forest-guard registry.example.org/forest-guard:latest
+$ docker push registry.example.org/forest-guard:latest
+```
