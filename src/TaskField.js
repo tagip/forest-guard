@@ -16,7 +16,7 @@ const TaskField = function ({ record = {}, type = 'task' }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span title={record.subject}>#{record.ref}:{record.subject}</span>
+        <span title={`${record.ref} ${record.subject} | ${record.status_extra_info.name}`}>#{record.ref} {record.subject}</span>
       </a>
     </Chip>);
 }
