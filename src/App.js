@@ -5,6 +5,7 @@ import authClient from './authClient';
 import jsonServerRestClient from './RestClient';
 
 import { UserList } from './users';
+import { API_URL } from './consts';
 
 const httpClient = (url, options = {}) => {
     if (!options.headers) {
@@ -14,8 +15,6 @@ const httpClient = (url, options = {}) => {
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 }
-
-const API_URL = process.env.REACT_APP_API_URL || 'https://api.taiga.io/api/v1'
 
 const restClient = jsonServerRestClient(API_URL, httpClient);
 
