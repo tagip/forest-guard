@@ -7,13 +7,14 @@ FROM node:6-alpine
 RUN npm install --global create-react-app
 
 ARG REACT_APP_API_URL=https://api.taiga.io/api/v1
+ARG REACT_APP_BASE_URL=https://tree.taiga.io
 
 # copy source code
 COPY . .
 
 # install dependencies && build production
 RUN yarn install && \
-  REACT_APP_API_URL=`echo $REACT_APP_API_URL` yarn run build
+  REACT_APP_API_URL=`echo $REACT_APP_API_URL` REACT_APP_BASE_URL=`echo $REACT_APP_BASE_URL` yarn run build
 
 ## RUN APP ##
 
