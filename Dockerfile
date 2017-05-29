@@ -13,7 +13,7 @@ COPY . .
 
 # install dependencies && build production
 RUN yarn install && \
-  yarn run build
+  REACT_APP_API_URL=`$echo $REACT_APP_API_URL` yarn run build
 
 ## RUN APP ##
 
