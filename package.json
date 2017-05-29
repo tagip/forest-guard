@@ -1,6 +1,7 @@
 {
   "name": "forest-guard",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "admin-on-rest": "^1.0.2",
