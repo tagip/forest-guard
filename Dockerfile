@@ -6,7 +6,7 @@ FROM node:6-alpine
 # install create-react-app
 RUN npm install --global create-react-app
 
-ENV REACT_APP_API_URL https://api.taiga.io/api/v1
+ARG REACT_APP_API_URL=https://api.taiga.io/api/v1
 
 # copy source code
 COPY . .
