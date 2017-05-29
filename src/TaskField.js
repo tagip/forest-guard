@@ -5,13 +5,14 @@ import { BASE_URL } from './consts';
 
 const TaskField = function ({ record = {}, type = 'task' }) {
   const backgroundColor = record.status_extra_info.color || '#e0e0e0';
+  const link = typeof record.project_extra_info !== 'undefined' ? `${BASE_URL}/project/${record.project_extra_info.slug}/${type}/${record.ref}` : '#'
   return (
     <Chip style={{margin: 2}}>
       <Avatar backgroundColor={backgroundColor}>
       </Avatar>
       <a
         style={{color: '#0e0e0e', textDecoration: 'none'}}
-        href={`${BASE_URL}/project/${record.project_extra_info.slug}/${type}/${record.ref}`}
+        href={link}
         target="_blank"
         rel="noopener noreferrer"
       >
