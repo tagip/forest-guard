@@ -11,5 +11,6 @@ The main view is a grid list of users and their assigned tasks and issues that a
 You will need yarn installed on your computer and an accessible Taiga instance. The Taiga API url should be passed in the `REACT_APP_API_URL` environment variable like so :
 
 ```
-→ REACT_APP_API_URL=http://taiga.tag-ip.com/api/v1 yarn start
+$ yarn install
+$ REACT_APP_API_URL=http://taiga.tag-ip.com/api/v1 yarn start
 ```
