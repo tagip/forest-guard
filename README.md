@@ -56,4 +56,5 @@ $ docker push registry.example.org/forest-guard:latest
 ## Environment variables
 
 `REACT_APP_API_URL`: The URL for the API root (default to https://api.taiga.io/api/v1)
+
 `REACT_APP_BASE_URL`: The URL of Taiga front-end (default to http://tree.taiga.io/)
