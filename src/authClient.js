@@ -16,12 +16,14 @@ export default (type, params) => {
                 }
                 return response.json();
             })
-            .then(({ auth_token }) => {
+            .then(({ auth_token, id }) => {
                 localStorage.setItem('token', auth_token);
+                localStorage.setItem('user_id', id);
             });
     }
     if (type === AUTH_LOGOUT) {
         localStorage.removeItem('token');
+        localStorage.removeItem('user_id');
         return Promise.resolve();
     }
     if (type === AUTH_CHECK) {
