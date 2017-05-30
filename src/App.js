@@ -5,6 +5,7 @@ import authClient from './authClient';
 import jsonServerRestClient from './RestClient';
 
 import { UserList } from './UserList';
+import { TaskList } from './TaskList';
 import { API_URL } from './consts';
 
 const httpClient = (url, options = {}) => {
@@ -20,9 +21,9 @@ const restClient = jsonServerRestClient(API_URL, httpClient);
 
 const App = () => (
     <Admin title="Forest Guard" restClient={restClient} authClient={authClient}>
-        <Resource name="users" list={UserList} options={{ label: 'Who is doing what?' }}/>
-        <Resource name="tasks" />
-        <Resource name="issues" />
+        <Resource name="users" list={UserList} options={{ label: 'Work In Progress' }}/>
+        <Resource name="tasks" list={TaskList} options={{ label: 'Open Tasks' }} />
+        <Resource name="issues" list={TaskList} options={{ label: 'Open Issues' }}/>
         <Resource name="project" />
     </Admin>
 );
