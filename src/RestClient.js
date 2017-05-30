@@ -33,8 +33,10 @@ export default (apiUrl, httpClient = fetchJson) => {
         const options = {};
         switch (type) {
         case GET_LIST: {
+            const { page } = params.pagination;
             const query = {
-                ...params.filter,
+              page,
+              ...params.filter
             };
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
