@@ -6,37 +6,54 @@ The main view is a grid list of users and their assigned tasks and issues that a
 
 ## Start the project
 
-## Environment variables
-
-`REACT_APP_API_URL`: The URL for the API root (default to https://api.taiga.io/api/v1)
-`REACT_APP_BASE_URL`: The URL of Taiga front-end (default to http://tree.taiga.io/)
-
 ### Using yarn
 
-You will need yarn installed on your computer and an accessible Taiga instance. The Taiga API url should be passed in the `REACT_APP_API_URL` environment variable like so :
+You need to have yarn installed on your computer. First, install dependencies with 
 
 ```
 $ yarn install
+```
+
+Then you are ready to run the project using
+
+```
+$ yarn start
+````
+
+If you have a custom Taiga instance, set `REACT_APP_API_URL` and `REACT_APP_API_URL` variables as you start the project:
+
+```
 $ REACT_APP_BASE_URL=http://taiga.tag-ip.com REACT_APP_API_URL=http://taiga.tag-ip.com/api/v1 yarn start
 ```
 
 ### Using docker
 
-You can build a docker image and set the `REACT_APP_API_URL` variable : 
+Build the docker image with
+
+```
+$ docker build -t forest-guard .
+```
+
+You can set the `REACT_APP_API_URL` and `REACT_APP_API_URL` variables if needed using
 
 ```
 $ docker build --build-arg REACT_APP_API_URL=http://taiga.tag-ip.com/api/v1 --build-arg REACT_APP_BASE_URL=http://taiga.tag-ip.com -t forest-guard .
 ```
 
-The image can then be run with (here on port 8056) : 
+Then you run the image (here on port 8056) with
 
 ```
 $ docker run -p 8056:80 --name forest-guard --rm forest-guard
 ```
 
-You can push the image in a registry (either docker hub or a private registry) so it can be used from anywhere else : 
+Finally, you can push the image in a registry (either docker hub or a private registry) so it can be used from anywhere else : 
 
 ```
 $ docker tag forest-guard registry.example.org/forest-guard:latest
 $ docker push registry.example.org/forest-guard:latest
 ```
+
+## Environment variables
+
+`REACT_APP_API_URL`: The URL for the API root (default to https://api.taiga.io/api/v1)
+`REACT_APP_BASE_URL`: The URL of Taiga front-end (default to http://tree.taiga.io/)
