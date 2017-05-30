@@ -38,6 +38,11 @@ export default (apiUrl, httpClient = fetchJson) => {
               page,
               ...params.filter
             };
+            // Special case for /users : use /users/ID/contacts instead
+            if (resource === 'users') {
+              const user_id = localStorage.getItem('user_id');
+              resource += `/${user_id}/contacts`;
+            }
             url = `${apiUrl}/${resource}?${queryParameters(query)}`;
             break;
         }
