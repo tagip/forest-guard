@@ -7,7 +7,7 @@ const TaskField = function ({ record = {}, type = 'task' }) {
   const backgroundColor = typeof record.status_extra_info !== 'undefined' ? record.status_extra_info.color : '#e0e0e0';
   const link = typeof record.project_extra_info !== 'undefined' ? `${BASE_URL}/project/${record.project_extra_info.slug}/${type}/${record.ref}` : '#'
   return (
-    <Chip style={{margin: 2}}>
+    <Chip style={{margin: 4}}>
       <Avatar backgroundColor={backgroundColor}>
       </Avatar>
       <a
