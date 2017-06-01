@@ -12,6 +12,7 @@ const TaskField = function ({ record = {}, type = 'task' }) {
     <Chip style={{margin: 4}}>
       <Avatar
         backgroundColor={backgroundColor}
+        title={type.toUpperCase()}
         icon={type === 'issue' ? <BugIcon /> : <ExtensionIcon />}
       />
       <a

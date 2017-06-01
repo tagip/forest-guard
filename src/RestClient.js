@@ -98,6 +98,17 @@ export default (apiUrl, httpClient = fetchJson) => {
             if (!headers.has('x-pagination-count')) {
                 throw new Error('The x-pagination-count header is missing in the HTTP Response. The jsonServer REST client expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare x-pagination-count in the Access-Control-Expose-Headers header?');
             }
+            if (resource === 'users') {
+              const user_id = localStorage.getItem('user_id');
+              const full_name = localStorage.getItem('full_name');
+              return {
+                data: [{
+                  id: user_id,
+                  full_name: full_name,
+                }].concat(json),
+                total: parseInt(headers.get('x-pagination-count').split('/').pop(), 10),
+              };
+            }
             return {
                 data: json,
                 total: parseInt(headers.get('x-pagination-count').split('/').pop(), 10),
@@ -105,7 +116,7 @@ export default (apiUrl, httpClient = fetchJson) => {
         case CREATE:
             return { data: { ...params.data, id: json.id } };
         default:
-            return { data: json };
+          return { data: json };
         }
     };
 
