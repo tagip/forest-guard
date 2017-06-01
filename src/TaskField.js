@@ -1,6 +1,8 @@
 import React from 'react';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
+import BugIcon from 'material-ui/svg-icons/action/bug-report';
+import ExtensionIcon from 'material-ui/svg-icons/action/extension';
 import { BASE_URL } from './consts';
 
 const TaskField = function ({ record = {}, type = 'task' }) {
@@ -8,8 +10,10 @@ const TaskField = function ({ record = {}, type = 'task' }) {
   const link = typeof record.project_extra_info !== 'undefined' ? `${BASE_URL}/project/${record.project_extra_info.slug}/${type}/${record.ref}` : '#'
   return (
     <Chip style={{margin: 4}}>
-      <Avatar backgroundColor={backgroundColor}>
-      </Avatar>
+      <Avatar
+        backgroundColor={backgroundColor}
+        icon={type === 'issue' ? <BugIcon /> : <ExtensionIcon />}
+      />
       <a
         style={{color: '#0e0e0e', textDecoration: 'none'}}
         href={link}
