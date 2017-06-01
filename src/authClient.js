@@ -1,5 +1,17 @@
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK } from 'admin-on-rest';
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR } from 'admin-on-rest';
 import { API_URL } from './consts';
+
+const setCurrentUser = (user) => {
+  localStorage.setItem('token', user.auth_token);
+  localStorage.setItem('user_id', user.id);
+  localStorage.setItem('full_name', user.full_name);
+}
+
+const clearCurrentUser = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('user_id');
+  localStorage.removeItem('full_name');
+}
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -17,19 +29,23 @@ export default (type, params) => {
                 return response.json();
             })
             .then((user) => {
-                localStorage.setItem('token', user.auth_token);
-                localStorage.setItem('user_id', user.id);
-                localStorage.setItem('full_name', user.full_name);
+                setCurrentUser(user);
             });
     }
     if (type === AUTH_LOGOUT) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user_id');
-        localStorage.removeItem('full_name');
+        clearCurrentUser();
         return Promise.resolve();
     }
     if (type === AUTH_CHECK) {
         return localStorage.getItem('token') ? Promise.resolve() : Promise.reject({ redirectTo: '/login' });
+    }
+    if (type === AUTH_ERROR) {
+      const { status } = params;
+      if (status === 401 || status === 403) {
+        clearCurrentUser();
+        return Promise.reject();
+      }
+      return Promise.resolve();
     }
     return Promise.resolve();
 }
