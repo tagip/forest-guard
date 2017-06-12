@@ -6,12 +6,12 @@ import TaskField from './TaskField';
 const WorkInProgressField = ({ source, record = {}, ...props }) => <span>
   <ReferenceManyField label="Issues" reference="issues" target="assigned_to" filter={{ status__is_closed: false }} record={record} {...props}>
     <SingleFieldList>
-      <TaskField source="id" type="issue" />
+      <TaskField source="id" type="issue" record={record} {...props}/>
     </SingleFieldList>
   </ReferenceManyField>
   <ReferenceManyField label="Tasks" reference="tasks" target="assigned_to" filter={{ status__is_closed: false }} record={record} {...props}>
     <SingleFieldList>
-      <TaskField source="id" type="task" />
+      <TaskField source="id" type="task" record={record} {...props}/>
     </SingleFieldList>
   </ReferenceManyField>
 </span>;
