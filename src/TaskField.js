@@ -3,6 +3,7 @@ import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import BugIcon from 'material-ui/svg-icons/action/bug-report';
 import ExtensionIcon from 'material-ui/svg-icons/action/extension';
+import Moment from 'react-moment';
 import { BASE_URL } from './consts';
 
 const TaskField = function ({ record = {}, type = 'task' }) {
@@ -22,6 +23,10 @@ const TaskField = function ({ record = {}, type = 'task' }) {
         rel="noopener noreferrer"
       >
         <span title={`${record.ref} ${record.subject} | ${record.status_extra_info.name}`}>#{record.ref} {record.subject}</span>
+        <span className='important-dates'>
+          <span className='important-dates--label'>Created on: </span>
+          <Moment format='L'>{record.created_date}</Moment>
+        </span>
       </a>
     </Chip>);
 }

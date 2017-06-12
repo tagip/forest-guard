@@ -5,8 +5,11 @@
   "private": true,
   "dependencies": {
     "admin-on-rest": "^1.0.2",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-moment": "^0.2.4"
   },
   "devDependencies": {
     "react-scripts": "1.0.6"

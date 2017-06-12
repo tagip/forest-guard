@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* Importante dates style (creation date, due date) */
+.important-dates {
+  display: block;
+  margin-top: -1em;
+
+}
+.important-dates--label {
+  font-weight: bold;
+}
+
