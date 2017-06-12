@@ -1,9 +1,10 @@
 import Moment from 'react-moment';
 import React, { Component } from 'react';
 import { fetchUtils } from 'admin-on-rest';
+import PropTypes from 'prop-types';
 import jsonServerRestClient from './RestClient.js';
 import { GET_ONE } from 'admin-on-rest/lib/rest/types';
-import { API_URL, BASE_URL, DUE_DATE_CUSTOM_ATTRIBUTES } from './consts';
+import { API_URL, DUE_DATE_CUSTOM_ATTRIBUTES } from './consts';
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
@@ -51,6 +52,11 @@ class DueDate extends Component {
       </span>
     );
   }
+}
+
+DueDate.propTypes = {
+  type: PropTypes.string,
+  record: PropTypes.object,
 }
 
 export default DueDate;

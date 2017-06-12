@@ -3,7 +3,7 @@ import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import BugIcon from 'material-ui/svg-icons/action/bug-report';
 import ExtensionIcon from 'material-ui/svg-icons/action/extension';
-import { API_URL, BASE_URL } from './consts';
+import { BASE_URL } from './consts';
 import DueDate from './DueDate';
 
 export default class TaskField extends React.Component {
@@ -26,7 +26,7 @@ export default class TaskField extends React.Component {
           rel="noopener noreferrer"
         >
           <span title={`${this.props.record.ref} ${this.props.record.subject} | ${this.props.record.status_extra_info.name}`}>#{this.props.record.ref} {this.props.record.subject}</span>
-          <DueDate {...this.props} />
+          <DueDate record={this.props.record} type={this.props.type} />
         </a>
       </Chip>);
   }
