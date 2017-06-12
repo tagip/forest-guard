@@ -30,13 +30,17 @@ class DueDate extends Component {
 
   componentDidMount() {
     const BASE_TYPE = this.props.type + 's';
-    restClient(GET_ONE, BASE_TYPE + '/custom-attributes-values', this.props.record).then(response => {
-      this.setState({ custom_attributes: response.data.attributes_values })
-    });
+    const exists = typeof DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project];
+    if (exists) {
+      restClient(GET_ONE, BASE_TYPE + '/custom-attributes-values', this.props.record).then(response => {
+        this.setState({ custom_attributes: response.data.attributes_values })
+      });
+    }
   }
 
   render() {
-    const dueDate = typeof this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] !== 'undefined' ? this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] : null;
+    const exists = typeof DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project] !== 'undefined';
+    const dueDate = exists && typeof this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] !== 'undefined' ? this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] : null;
     const isLate = moment().isAfter(dueDate, 'day');
     const dueDateDisplay = dueDate ? <span>
       <span className='important-dates--label important-dates--label__right'>Due date: </span>
