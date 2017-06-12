@@ -1,4 +1,5 @@
 import Moment from 'react-moment';
+import moment from 'moment';
 import React, { Component } from 'react';
 import { fetchUtils } from 'admin-on-rest';
 import PropTypes from 'prop-types';
@@ -36,9 +37,10 @@ class DueDate extends Component {
 
   render() {
     const dueDate = typeof this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] !== 'undefined' ? this.state.custom_attributes[DUE_DATE_CUSTOM_ATTRIBUTES[this.props.record.project][this.props.type]] : null;
+    const isLate = moment().isAfter(dueDate, 'day');
     const dueDateDisplay = dueDate ? <span>
       <span className='important-dates--label important-dates--label__right'>Due date: </span>
-      <Moment format='L'>{dueDate}</Moment>
+      <Moment format='L' className={isLate ? 'is-late' : 'is-ok'}>{dueDate}</Moment>
     </span> : null;
 
     return (

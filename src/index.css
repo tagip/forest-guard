@@ -14,4 +14,12 @@ body {
 .important-dates--label {
   font-weight: bold;
 }
+.important-dates .is-late {
+  font-weight: bold;
+  color: #f51;
+}
+.important-dates .is-ok {
+  font-weight: bold;
+  color: #6db536;
+}
 
