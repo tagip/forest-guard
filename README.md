@@ -20,7 +20,7 @@ Then you are ready to run the project using
 $ yarn start
 ````
 
-If you have a custom Taiga instance, set `REACT_APP_API_URL` and `REACT_APP_API_URL` variables as you start the project:
+If you have a custom Taiga instance, set `REACT_APP_API_URL` and `REACT_APP_API_URL` variables as you start the project or place them in a `.env` file:
 
 ```
 $ REACT_APP_BASE_URL=http://taiga.tag-ip.com REACT_APP_API_URL=http://taiga.tag-ip.com/api/v1 yarn start
