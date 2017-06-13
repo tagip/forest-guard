@@ -76,3 +76,6 @@ $ docker push registry.example.org/forest-guard:latest
   // ...
 }
 ``` 
+
+`REACT_APP_ISSUE_STATUS_FILTER`: A comma separated list of issue status ID used as filter.
+`REACT_APP_TASK_STATUS_FILTER`: A comma separated list of task status ID used as filter.
