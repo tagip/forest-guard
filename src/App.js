@@ -6,17 +6,7 @@ import jsonServerRestClient from './RestClient';
 
 import { UserList } from './UserList';
 import { API_URL } from './consts';
-
-const httpClient = (url, options = {}) => {
-    if (!options.headers) {
-        options.headers = new Headers({ Accept: 'application/json' });
-    }
-    const token = localStorage.getItem('token');
-    options.headers.set('Authorization', `Bearer ${token}`);
-    return fetchUtils.fetchJson(url, options);
-}
-
-const restClient = jsonServerRestClient(API_URL, httpClient);
+import { restClient } from './RestClient';
 
 const App = () => (
     <Admin title="Forest Guard" restClient={restClient} authClient={authClient}>

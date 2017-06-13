@@ -8,6 +8,8 @@ import {
     UPDATE,
     DELETE,
 } from 'admin-on-rest/lib/rest/types';
+import { fetchUtils } from 'admin-on-rest';
+import { API_URL } from './consts';
 
 /**
  * Maps admin-on-rest queries to a json-server powered REST API
@@ -21,7 +23,7 @@ import {
  * CREATE       => POST http://my.api.url/posts/123
  * DELETE       => DELETE http://my.api.url/posts/123
  */
-export default (apiUrl, httpClient = fetchJson) => {
+const jsonServerRestClient = (apiUrl, httpClient = fetchJson) => {
     /**
      * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
      * @param {String} resource Name of the resource to fetch, e.g. 'posts'
@@ -137,3 +139,21 @@ export default (apiUrl, httpClient = fetchJson) => {
             .then(response => convertHTTPResponseToREST(response, type, resource, params));
     };
 };
+
+export default jsonServerRestClient;
+
+/**
+ * A simple htt client that uses token as authorization bearer
+ * @param {*} url
+ * @param {*} options
+ */
+const httpClient = (url, options = {}) => {
+  if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+  const token = localStorage.getItem('token');
+  options.headers.set('Authorization', `Bearer ${token}`);
+  return fetchUtils.fetchJson(url, options);
+}
+
+export const restClient = jsonServerRestClient(API_URL, httpClient);
