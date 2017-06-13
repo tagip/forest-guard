@@ -9,7 +9,7 @@ import {
     DELETE,
 } from 'admin-on-rest/lib/rest/types';
 import { fetchUtils } from 'admin-on-rest';
-import { API_URL } from './consts';
+import { API_URL, IGNORE_USERS } from './consts';
 
 /**
  * Maps admin-on-rest queries to a json-server powered REST API
@@ -94,6 +94,7 @@ const jsonServerRestClient = (apiUrl, httpClient = fetchJson) => {
      */
     const convertHTTPResponseToREST = (response, type, resource, params) => {
         const { headers, json } = response;
+        let users = json;
         switch (type) {
         case GET_LIST:
         case GET_MANY_REFERENCE:
@@ -101,13 +102,20 @@ const jsonServerRestClient = (apiUrl, httpClient = fetchJson) => {
                 throw new Error('The x-pagination-count header is missing in the HTTP Response. The jsonServer REST client expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare x-pagination-count in the Access-Control-Expose-Headers header?');
             }
             if (resource === 'users') {
+              // Add current users
               const user_id = localStorage.getItem('user_id');
               const full_name = localStorage.getItem('full_name');
+              // Remove ignored users if any
+              if (IGNORE_USERS.length > 0) {
+                users = json.filter(user => {
+                  return IGNORE_USERS.indexOf(user.id.toString()) === -1;
+                });
+              }
               return {
                 data: [{
                   id: user_id,
                   full_name: full_name,
-                }].concat(json),
+                }].concat(users),
                 total: parseInt(headers.get('x-pagination-count').split('/').pop(), 10),
               };
             }

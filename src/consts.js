@@ -12,3 +12,4 @@ if (process.env.REACT_APP_DUE_DATE_CUSTOM_ATTRIBUTES) {
 export const DUE_DATE_CUSTOM_ATTRIBUTES = dueDates;
 export const ISSUE_STATUS_FILTER = process.env.REACT_APP_ISSUE_STATUS_FILTER || '';
 export const TASK_STATUS_FILTER = process.env.REACT_APP_TASK_STATUS_FILTER || '';
+export const IGNORE_USERS = typeof process.env.REACT_APP_IGNORE_USERS !== 'undefined' ? process.env.REACT_APP_IGNORE_USERS.split(',') : [];
