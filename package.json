@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "admin-on-rest": "^1.0.2",
+    "aor-language-french": "^1.8.0",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "react": "^15.5.4",
