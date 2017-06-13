@@ -4,11 +4,11 @@ import { List, Datagrid, TextField } from 'admin-on-rest';
 import WorkInProgressField from './WorkInProgressField';
 
 export const UserList = (props) => (
-  <List {...props} perPage={30} title="Work In Progress">
+  <List {...props} perPage={30} title="fg.work_in_progress">
     <Datagrid>
       <TextField source="id" sortable={false} />
-      <TextField source="full_name" sortable={false} label='Name' />
-      <WorkInProgressField source="id" sortable={false} label='Tasks/Issues' {...props} />
+      <TextField source="full_name" sortable={false} />
+      <WorkInProgressField source="tasks_issues" sortable={false} {...props} />
     </Datagrid>
   </List>
 );
