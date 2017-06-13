@@ -3,3 +3,23 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* Importante dates style (creation date, due date) */
+.important-dates {
+  display: block;
+  margin-top: -1em;
+  display: flex;
+  justify-content: space-between;
+}
+.important-dates--label {
+  font-weight: bold;
+}
+.important-dates .is-late {
+  font-weight: bold;
+  color: #f51;
+}
+.important-dates .is-ok {
+  font-weight: bold;
+  color: #6db536;
+}
+

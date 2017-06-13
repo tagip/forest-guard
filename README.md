@@ -55,6 +55,24 @@ $ docker push registry.example.org/forest-guard:latest
 
 ## Environment variables
 
+*Environment variables car be inserted in the `.env` file*
+
 `REACT_APP_API_URL`: The URL for the API root (default to https://api.taiga.io/api/v1)
 
 `REACT_APP_BASE_URL`: The URL of Taiga front-end (default to http://tree.taiga.io/)
+
+`REACT_APP_DUE_DATE_CUSTOM_ATTRIBUTES`: A JSON object that describes custom attributes used as due date field. The structure of the object is like so:
+
+```
+{
+  PROJECT_X_ID: {
+    'issue': CUSTOM_FIELD_X_ID,
+    'task': ANOTHER_CUSTOM_FIELD_X_ID
+  },
+  PROJECT_Y_ID: {
+    'issue': CUSTOM_FIELD_X_ID,
+    'task': ANOTHER_CUSTOM_FIELD_X_ID
+  },
+  // ...
+}
+``` 
