@@ -8,6 +8,8 @@ RUN npm install --global create-react-app
 
 ARG REACT_APP_API_URL=https://api.taiga.io/api/v1
 ARG REACT_APP_BASE_URL=https://tree.taiga.io
+ARG REACT_APP_IGNORE_USERS
+ARG REACT_APP_DUE_DATE_CUSTOM_ATTRIBUTES
 
 # copy source code
 COPY . .
