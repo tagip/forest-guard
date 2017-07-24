@@ -36,6 +36,24 @@ const messages = {
         }
       }
     }
+  },
+
+  // GERMAN
+  de: {
+    fg: {
+      created_on: 'Erstellt am',
+      due_date: 'Fällig am',
+      work_in_progress: 'In Arbeit',
+    },
+    resources: {
+      users: {
+        name: 'In Arbeit',
+        fields: {
+          full_name: 'Name',
+          tasks_issues: 'Aufgabe/Problem',
+        }
+      }
+    }
   }
 }
 
@@ -101,6 +119,67 @@ moment.locale('fr', {
     doy: 4  // The week that contains Jan 4th is the first week of the year.
   }
 });
+
+moment.locale('de', {
+    months: 'Jaunar_Februar_März_April_Mai_Juni_Juli_August_September_Oktober_November_Dezember'.split('_'),
+    monthsShort: 'Jan._Feb._März_Apr._Mai_Juni_Juli_Aug._Sept._Okt._Nov._Dez.'.split('_'),
+    monthsParseExact: true,
+    weekdays: 'Sonntag_Montag_Dientag_Mittwoch_Donnerstag_Freitag_Samstag'.split('_'),
+    weekdaysShort: 'So._Mo._Di._Mi._Do._Fr._Sa.'.split('_'),
+    weekdaysMin: 'So_Mo_Di_Mi_Do_Fr_Sa'.split('_'),
+    weekdaysParseExact: true,
+    longDateFormat: {
+      LT: 'HH:mm',
+      LTS: 'HH:mm:ss',
+      L: 'DD/MM/YYYY',
+      LL: 'D MMMM YYYY',
+      LLL: 'D MMMM YYYY HH:mm',
+      LLLL: 'dddd D MMMM YYYY HH:mm'
+    },
+    calendar: {
+      sameDay: '[heute um}] LT',
+      nextDay: '[morgen um] LT',
+      nextWeek: 'dddd [in] LT',
+      lastDay: '[Gestern um] LT',
+      lastWeek: 'dddd [vor dem] LT',
+      sameElse: 'L'
+    },
+    relativeTime: {
+      future: 'in %s',
+      past: 'vor %s',
+      s: 'einigen Sekunden',
+      m: 'eine Minute',
+      mm: '%d Minuten',
+      h: 'eine Stunde',
+      hh: '%d Stunden',
+      d: 'eine Woche',
+      dd: '%d Wochen',
+      M: 'ein Monat',
+      MM: '%d Monate',
+      y: 'ein Jahr',
+      yy: '%d Jahre'
+    },
+    dayOfMonthOrdinalParse: /\d{1,2}(er|e)/,
+    ordinal: function (number) {
+      return number + (number === 1 ? 'er' : 'e');
+    },
+    meridiemParse: /PD|MD/,
+    isPM: function (input) {
+      return input.charAt(0) === 'M';
+    },
+    // In case the meridiem units are not separated around 12, then implement
+    // this function (look at locale/id.js for an example).
+    // meridiemHour : function (hour, meridiem) {
+    //     return /* 0-23 hour, given meridiem token and hour 1-12 */ ;
+    // },
+    meridiem: function (hours, minutes, isLower) {
+      return hours < 12 ? 'PD' : 'MD';
+    },
+    week: {
+      dow: 1, // Monday is the first day of the week.
+      doy: 4  // The week that contains Jan 4th is the first week of the year.
+    }
+  });
 
 export const momentLocale = () => {
   const available = moment.locales();
