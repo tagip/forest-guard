@@ -8,7 +8,6 @@ const messages = {
       created_on: 'Créé le',
       due_date: 'Echéance',
       work_in_progress: 'Travaux en cours',
-      todo_list: 'Ma Todo-List',
     },
     resources: {
       users: {
@@ -19,7 +18,10 @@ const messages = {
         }
       },
       issues: {
-        name: 'Ma Todo-List'
+        name: 'Tickets'
+      },
+      tasks: {
+        name: 'Tâches'
       }
     }
   },
@@ -30,7 +32,7 @@ const messages = {
       created_on: 'Created on',
       due_date: 'Due date',
       work_in_progress: 'Work in progress',
-      todo_list: 'My Todo-List',
+      todo_list: 'Todo',
     },
     resources: {
       users: {
@@ -41,7 +43,7 @@ const messages = {
         }
       },
       issues: {
-        name: 'My Todo-List'
+        name: 'Issues'
       }
     }
   },
@@ -52,6 +54,7 @@ const messages = {
       created_on: 'Erstellt am',
       due_date: 'Fällig am',
       work_in_progress: 'In Arbeit',
+      todo_list: 'Todo',
     },
     resources: {
       users: {
