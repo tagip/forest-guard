@@ -18,10 +18,10 @@ const messages = {
         }
       },
       issues: {
-        name: 'Tickets'
+        name: 'Tickets assignés'
       },
       tasks: {
-        name: 'Tâches'
+        name: 'Tâches assignées'
       }
     }
   },
@@ -43,7 +43,10 @@ const messages = {
         }
       },
       issues: {
-        name: 'Issues'
+        name: 'Assigned Issues'
+      },
+      tasks: {
+        name: 'Assigned Tasks'
       }
     }
   },
