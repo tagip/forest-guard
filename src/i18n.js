@@ -16,6 +16,12 @@ const messages = {
           full_name: 'Nom',
           tasks_issues: 'Tâches/Tickets',
         }
+      },
+      issues: {
+        name: 'Tickets assignés'
+      },
+      tasks: {
+        name: 'Tâches assignées'
       }
     }
   },
@@ -26,6 +32,7 @@ const messages = {
       created_on: 'Created on',
       due_date: 'Due date',
       work_in_progress: 'Work in progress',
+      todo_list: 'Todo',
     },
     resources: {
       users: {
@@ -34,6 +41,12 @@ const messages = {
           full_name: 'Name',
           tasks_issues: 'Tasks/Issues',
         }
+      },
+      issues: {
+        name: 'Assigned Issues'
+      },
+      tasks: {
+        name: 'Assigned Tasks'
       }
     }
   },
@@ -44,6 +57,7 @@ const messages = {
       created_on: 'Erstellt am',
       due_date: 'Fällig am',
       work_in_progress: 'In Arbeit',
+      todo_list: 'Todo',
     },
     resources: {
       users: {
