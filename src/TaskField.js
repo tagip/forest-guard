@@ -25,7 +25,8 @@ export default class TaskField extends React.Component {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span title={`${this.props.record.ref} ${this.props.record.subject} | ${this.props.record.status_extra_info.name}`}>#{this.props.record.ref} {this.props.record.subject}</span>
+          <span className="project-name">{this.props.record.project_extra_info.name} #{this.props.record.ref}</span>
+          <span title={`${this.props.record.ref} ${this.props.record.subject} | ${this.props.record.status_extra_info.name}`}> - {this.props.record.subject}</span>
           <DueDate record={this.props.record} type={this.props.type} />
         </a>
       </Chip>);
