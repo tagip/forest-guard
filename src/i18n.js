@@ -56,16 +56,24 @@ const messages = {
     fg: {
       created_on: 'Erstellt am',
       due_date: 'Fällig am',
-      work_in_progress: 'In Arbeit',
+      work_in_progress: 'Übersicht alle Benutzer',
       todo_list: 'Todo',
+      assigned_issues: '',
+      assigned_tasks: '',
     },
     resources: {
       users: {
-        name: 'In Arbeit',
+        name: 'Übersicht',
         fields: {
           full_name: 'Name',
           tasks_issues: 'Aufgabe/Problem',
         }
+      },
+	   issues: {
+        name: 'Tickets'
+      },
+      tasks: {
+        name: 'Aufgaben'
       }
     }
   }
@@ -145,7 +153,7 @@ moment.locale('de', {
     longDateFormat: {
       LT: 'HH:mm',
       LTS: 'HH:mm:ss',
-      L: 'DD/MM/YYYY',
+      L: 'DD.MM.YYYY',
       LL: 'D MMMM YYYY',
       LLL: 'D MMMM YYYY HH:mm',
       LLLL: 'dddd D MMMM YYYY HH:mm'
