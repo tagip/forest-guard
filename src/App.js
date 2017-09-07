@@ -11,6 +11,7 @@ import { UserList } from './UserList';
 import { TaskList } from './TaskList';
 import { restClient } from './RestClient';
 import domainMessages from './i18n';
+import Dashboard from './Dashboard';
 
 const messages = {
   fr: { ...frenchMessages, ...domainMessages.fr },
@@ -19,7 +20,7 @@ const messages = {
 };
 
 const App = () => (
-  <Admin title="Forest Guard" restClient={restClient} authClient={authClient} locale={resolveBrowserLocale()} messages={messages}>
+  <Admin title="Forest Guard" restClient={restClient} authClient={authClient} locale={resolveBrowserLocale()} messages={messages} dashboard={Dashboard}>
     <Resource name="users" list={UserList} icon={WorkIcon} />
     <Resource name="issues" list={TaskList} title="fg.assigned_issues" icon={BugIcon} />
     <Resource name="tasks" list={TaskList} title="fg.assigned_tasks" icon={TaskIcon} />
