@@ -1,13 +1,11 @@
 import React from 'react';
-import { List, Datagrid, TextField } from 'admin-on-rest';
+import { List, Datagrid } from 'admin-on-rest';
+import TaigaLink from './TaigaLink';
 
 export const TaskList = (props) => (
   <List {...props} perPage={30} filter={{ status__is_closed: false, assigned_to: localStorage.getItem('user_id') }}>
     <Datagrid>
-      <TextField source="id" />
-      <TextField source="project_extra_info.name" label="Project" />
-      <TextField source="subject"/>
-      <TextField source="status_extra_info.name" label="Status"/>
+      <TaigaLink record={props.record} type={props.resource.replace(/s$/, '')} />
     </Datagrid>
   </List>
 );
