@@ -22,7 +22,7 @@ class Dashboard extends Component {
 
     restClient(GET_LIST, 'issues', {
       filter: {
-        // assigned_to: user_id,
+        assigned_to: user_id,
         status__is_closed: false
       },
       pagination: { page: 1, perPage: 50 },

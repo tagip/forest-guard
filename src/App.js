@@ -22,8 +22,8 @@ const messages = {
 const App = () => (
   <Admin title="Forest Guard" restClient={restClient} authClient={authClient} locale={resolveBrowserLocale()} messages={messages} dashboard={Dashboard}>
     <Resource name="users" list={UserList} icon={WorkIcon} />
-    <Resource name="issues" list={TaskList} title="fg.assigned_issues" icon={BugIcon} />
-    <Resource name="tasks" list={TaskList} title="fg.assigned_tasks" icon={TaskIcon} />
+    <Resource name="issues" />
+    <Resource name="tasks" />
     <Resource name="project" />
   </Admin>
 );
