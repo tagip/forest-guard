@@ -8,6 +8,8 @@ const messages = {
       created_on: 'Créé le',
       due_date: 'Echéance',
       work_in_progress: 'Travaux en cours',
+      assigned_issues_tasks: 'Mes tickets/tâches assignés',
+      unassigned_issues_tasks: 'Les tickets/tâches non-assignés',
     },
     resources: {
       users: {
@@ -33,6 +35,8 @@ const messages = {
       due_date: 'Due date',
       work_in_progress: 'Work in progress',
       todo_list: 'Todo',
+      assigned_issues_tasks: 'Assigned issues/tasks',
+      unassigned_issues_tasks: 'Unassigned issues/tasks',
     },
     resources: {
       users: {
@@ -58,8 +62,8 @@ const messages = {
       due_date: 'Fällig am',
       work_in_progress: 'Übersicht alle Benutzer',
       todo_list: 'Todo',
-      assigned_issues: '',
-      assigned_tasks: '',
+      assigned_issues_tasks: 'Aufgabe/Problem',
+      unassigned_issues_tasks: 'Nicht zugewiesene Probleme/Aufgaben',
     },
     resources: {
       users: {
