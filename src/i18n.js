@@ -35,8 +35,11 @@ const messages = {
       due_date: 'Due date',
       work_in_progress: 'Work in progress',
       todo_list: 'Todo',
+	  assigned_tasks: 'My Tasks',
+	  assigned_issues: 'My Issues',
       assigned_issues_tasks: 'Assigned issues/tasks',
       unassigned_issues_tasks: 'Unassigned issues/tasks',
+	  my_projects: 'My Projects'
     },
     resources: {
       users: {
@@ -62,15 +65,18 @@ const messages = {
       due_date: 'Fällig am',
       work_in_progress: 'Übersicht alle Benutzer',
       todo_list: 'Todo',
+	  assigned_tasks: 'Meine Aufgaben',
+	  assigned_issues: 'Meine Tickets',
       assigned_issues_tasks: 'Aufgabe/Problem',
-      unassigned_issues_tasks: 'Nicht zugewiesene Probleme/Aufgaben',
+      unassigned_issues_tasks: 'Nicht zugewiesene Tickets',
+	  my_projects: 'Meine Projekte'
     },
     resources: {
       users: {
         name: 'Übersicht',
         fields: {
           full_name: 'Name',
-          tasks_issues: 'Aufgabe/Problem',
+          tasks_issues: 'Ticket',
         }
       },
 	   issues: {
