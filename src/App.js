@@ -7,7 +7,6 @@ import WorkIcon from 'material-ui/svg-icons/action/work';
 import BugIcon from 'material-ui/svg-icons/action/bug-report';
 import TaskIcon from 'material-ui/svg-icons/action/extension';
 import authClient from './authClient';
-import { UserList } from './UserList';
 import { TaskList } from './TaskList';
 import { restClient } from './RestClient';
 import domainMessages from './i18n';
@@ -21,7 +20,6 @@ const messages = {
 
 const App = () => (
   <Admin title="Forest Guard" restClient={restClient} authClient={authClient} locale={resolveBrowserLocale()} messages={messages} dashboard={Dashboard}>
-    <Resource name="users" list={UserList} icon={WorkIcon} />
     <Resource name="issues" />
     <Resource name="tasks" />
     <Resource name="project" />
