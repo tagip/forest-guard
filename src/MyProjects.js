@@ -28,3 +28,4 @@ export default translate(({ projects = [], translate }) => (
       </Card>
     </div>
 ));
+
