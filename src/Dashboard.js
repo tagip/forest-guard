@@ -5,9 +5,10 @@ import { map, extend, merge } from 'lodash';
 import { restClient } from './RestClient';
 import MyProjects from './MyProjects';
 import Issues from './Issues';
+import Tasks from './Tasks';
 
 class Dashboard extends Component {
-  state = {issues: [], unassigned_issues: []};
+  state = {issues: [], tasks: [], unassigned_issues: []};
 
   componentDidMount() {
     const user_id = localStorage.getItem('user_id');
@@ -53,10 +54,10 @@ class Dashboard extends Component {
     })
     .then(response => {
       const tasks = map(response.data, task => extend(task, {type: "task"}))
-      this.setState({issues: merge(this.state.issues, tasks)})
+      this.setState({tasks: merge(this.state.tasks, tasks)})
     })
-
-    restClient(GET_LIST, 'tasks', {
+	
+    /*restClient(GET_LIST, 'tasks', {
       filter: {
         assigned_to: null,
         status__is_closed: false
@@ -66,17 +67,18 @@ class Dashboard extends Component {
     .then(response => {
       const tasks = map(response.data, task => extend(task, {type: "task"}))
       this.setState({unassigned_issues: merge(this.state.unassigned_issues, tasks)})
-    })
+    })*/
   }
 
   render(){
-    const { projects, issues, unassigned_issues } = this.state;
+    const { projects, issues, tasks,  unassigned_issues } = this.state;
 
     return (
       <div style={{display: "flex"}}>
         <MyProjects projects={projects} />
-        {issues.length > 0 ? <Issues issues={issues} title="fg.assigned_issues_tasks" color="#4e9a06"/> : null}
-        {unassigned_issues.length > 0 ? <Issues issues={unassigned_issues} title="fg.unassigned_issues_tasks" /> : null}
+		{issues.length > 0 ? <Issues issues={issues} title="fg.assigned_issues" color="#4e9a06"/> : null}
+		{tasks.length > 0 ? <Tasks tasks={tasks} title="fg.assigned_tasks" color="#e4d836"/> : null}
+		{unassigned_issues.length > 0 ? <Issues issues={unassigned_issues} title="fg.unassigned_issues_tasks" /> : null}
       </div>
   );
   }
