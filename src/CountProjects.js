@@ -12,6 +12,6 @@ const styles = {
 export default translate(({ value, translate }) => (
     <Card style={styles.card}>
         <Icon style={styles.icon} />
-        <CardTitle title={value} subtitle={translate('fg.assigned_issues_tasks')} />
+        <CardTitle title={value} subtitle={translate('fg.my_projects')} />
     </Card>
 ));
