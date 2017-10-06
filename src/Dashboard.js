@@ -35,7 +35,7 @@ class Dashboard extends Component {
 
     restClient(GET_LIST, 'issues', {
       filter: {
-        assigned_to: null,
+        assigned_to: "null",
         status__is_closed: false
       },
       pagination: { page: 1, perPage: 50 },
