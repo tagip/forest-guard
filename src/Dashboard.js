@@ -56,18 +56,7 @@ class Dashboard extends Component {
       const tasks = map(response.data, task => extend(task, {type: "task"}))
       this.setState({tasks: merge(this.state.tasks, tasks)})
     })
-	
-    /*restClient(GET_LIST, 'tasks', {
-      filter: {
-        assigned_to: null,
-        status__is_closed: false
-      },
-      pagination: { page: 1, perPage: 50 },
-    })
-    .then(response => {
-      const tasks = map(response.data, task => extend(task, {type: "task"}))
-      this.setState({unassigned_issues: merge(this.state.unassigned_issues, tasks)})
-    })*/
+
   }
 
   render(){
@@ -76,9 +65,9 @@ class Dashboard extends Component {
     return (
       <div style={{display: "flex"}}>
         <MyProjects projects={projects} />
-		{issues.length > 0 ? <Issues issues={issues} title="fg.assigned_issues" color="#4e9a06"/> : null}
-		{tasks.length > 0 ? <Tasks tasks={tasks} title="fg.assigned_tasks" color="#e4d836"/> : null}
-		{unassigned_issues.length > 0 ? <Issues issues={unassigned_issues} title="fg.unassigned_issues_tasks" /> : null}
+        <Issues issues={issues} title="fg.assigned_issues" color="#4e9a06"/>
+        <Tasks tasks={tasks} title="fg.assigned_tasks" color="#e4d836"/>
+        <Issues issues={unassigned_issues} title="fg.unassigned_issues_tasks" />
       </div>
   );
   }
