@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardTitle } from 'material-ui/Card';
-import Icon from 'material-ui/svg-icons/action/list';
+import Icon from 'material-ui/svg-icons/file/folder';
 import { pink400 } from 'material-ui/styles/colors';
 import { translate } from 'admin-on-rest';
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, CardTitle } from 'material-ui/Card';
+import { Card } from 'material-ui/Card';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import { translate } from 'admin-on-rest';
 import { pink400 } from 'material-ui/styles/colors';
-import { BASE_URL } from './consts';
+import { BASE_URL } from '../consts';
 import CountProjects from './CountProjects';
 
 const style = { flex: 1 };

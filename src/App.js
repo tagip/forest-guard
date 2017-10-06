@@ -4,11 +4,8 @@ import { Admin, Resource, englishMessages, resolveBrowserLocale } from 'admin-on
 import frenchMessages from 'aor-language-french';
 import germanMessages from 'aor-language-german';
 import WorkIcon from 'material-ui/svg-icons/action/work';
-import BugIcon from 'material-ui/svg-icons/action/bug-report';
-import TaskIcon from 'material-ui/svg-icons/action/extension';
 import authClient from './authClient';
 import { UserList } from './UserList';
-import { TaskList } from './TaskList';
 import { restClient } from './RestClient';
 import domainMessages from './i18n';
 import Dashboard from './Dashboard';

@@ -12,7 +12,6 @@ const messages = {
       unassigned_issues_tasks: "Les tickets/tâches non-assignés",
       assigned_tasks: "Mes tâches",
       assigned_issues: "Mes tickets",
-      unassigned_issues_tasks: "Tickets non-assignés",
       my_projects: "Mes projets"
     },
     resources: {

@@ -3,9 +3,8 @@ import { GET_LIST } from 'admin-on-rest';
 import withWidth from 'material-ui/utils/withWidth';
 import { map, extend, merge } from 'lodash';
 import { restClient } from './RestClient';
-import MyProjects from './MyProjects';
-import Issues from './Issues';
-import Tasks from './Tasks';
+import MyProjects from './components/MyProjects';
+import ItemList from './components/ItemList';
 
 class Dashboard extends Component {
   state = {issues: [], tasks: [], unassigned_issues: []};
@@ -57,6 +56,18 @@ class Dashboard extends Component {
       this.setState({tasks: merge(this.state.tasks, tasks)})
     })
 
+    restClient(GET_LIST, 'tasks', {
+      filter: {
+        assigned_to: "null",
+        status__is_closed: false
+      },
+      pagination: { page: 1, perPage: 50 },
+    })
+    .then(response => {
+      const tasks = map(response.data, issue => extend(issue, {type: "task"}))
+      this.setState({unassigned_issues: merge(this.state.unassigned_issues, tasks)})
+    })
+
   }
 
   render(){
@@ -65,9 +76,9 @@ class Dashboard extends Component {
     return (
       <div style={{display: "flex"}}>
         <MyProjects projects={projects} />
-        <Issues issues={issues} title="fg.assigned_issues" color="#4e9a06"/>
-        <Tasks tasks={tasks} title="fg.assigned_tasks" color="#e4d836"/>
-        <Issues issues={unassigned_issues} title="fg.unassigned_issues_tasks" />
+        <ItemList items={issues} title="fg.assigned_issues" color="#4e9a06" type="issue"/>
+        <ItemList items={tasks} title="fg.assigned_tasks" color="#e4d836" type="task"/>
+        <ItemList items={unassigned_issues} title="fg.unassigned_issues_tasks" type="all"/>
       </div>
   );
   }

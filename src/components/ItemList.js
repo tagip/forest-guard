@@ -1,24 +1,24 @@
 import React from "react";
-import { Card, CardTitle } from "material-ui/Card";
+import { Card } from "material-ui/Card";
 import { List, ListItem } from "material-ui/List";
 import Avatar from "material-ui/Avatar";
 import { translate } from "admin-on-rest";
-import { BASE_URL } from "./consts";
-import CountPending from "./CountPending";
+import { BASE_URL } from "../consts";
+import CountItems from "./CountItems";
 
 const style = { flex: 2, margin: "0 0 0 2em" };
 
-export default translate(({ issues = [], title, color, translate }) => (
+export default translate(({ items = [], title, color, translate, type }) => (
   <div style={style}>
-    <CountPending
-      value={issues.length}
+    <CountItems
+      value={items.length}
       title={title}
       color={color}
-      type="issue"
+      type={type || "issue"}
     />
     <Card>
       <List>
-        {issues.map(function(record) {
+        {items.map(function(record) {
           const link =
             typeof record.project_extra_info !== "undefined"
               ? `${BASE_URL}/project/${record.project_extra_info
