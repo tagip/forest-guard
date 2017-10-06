@@ -18,7 +18,7 @@ export default translate(({ projects = [], translate }) => (
                   <ListItem
                       key={record.id}
                       href={`${BASE_URL}/project/${record.slug}`}
-                      target="blank"
+                      target="_blank"
                       primaryText={record.name}
                       secondaryText={record.description}
                       leftAvatar={<Avatar backgroundColor={pink400}>{record.name.charAt(0)}</Avatar>}

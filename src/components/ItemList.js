@@ -28,7 +28,7 @@ export default translate(({ items = [], title, color, translate, type }) => (
             <ListItem
               key={record.id}
               href={link}
-              target="blank"
+              target="_blank"
               primaryText={record.subject}
               secondaryText={record.project_extra_info.name}
               leftAvatar={
